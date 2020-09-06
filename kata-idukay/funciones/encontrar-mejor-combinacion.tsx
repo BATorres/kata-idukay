@@ -7,7 +7,6 @@ export function encontrarMejorCombinacion(
     iteracion: number
 ): any {
     const titulo = 'Mejor combinacion';
-    let mensajes = '';
     if (valores.length > 0) {
         const nuevoArreglo = valores.filter(
             (elemento) => {
@@ -20,6 +19,8 @@ export function encontrarMejorCombinacion(
                 return elemento - 1;
             }
         );
+
+        let mensajes = '';
 
         switch (nuevoArreglo.length) {
             case 1:
@@ -46,7 +47,7 @@ export function encontrarMejorCombinacion(
                 break;
             default:
                 console.log(`El mayor daño que puede causar el mago es de ${danio}% de daño`);
-                mensajes = `El mayor daño que puede causar el mago es de ${danio}% de daño`;
+                mensajes = `El mayor daño que puede causar el mago es de ${danio}% de daño\n`;
                 Alert.alert(
                     titulo,
                     mensajes

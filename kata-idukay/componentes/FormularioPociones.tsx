@@ -1,4 +1,4 @@
-import {Button, Text, TextInput, View} from 'react-native';
+import {Button, Image, StyleSheet, Text, TextInput, View} from 'react-native';
 import * as React from 'react';
 import {encontrarMejorCombinacion} from '../funciones/encontrar-mejor-combinacion';
 
@@ -22,8 +22,15 @@ export const FormularioPociones = ({campos}: any) => {
                 const campo = campos[llave];
                 return (
                     <View key={llave}>
-                        <Text>{campo.label}</Text>
+                        <Text>
+                            <Image
+                                style={estilosFormulario.imagenes}
+                                source={campo.imagen}/>
+
+                            {campo.label}
+                        </Text>
                         <TextInput
+                            style={estilosFormulario.formulario}
                             {...campo.input}
                             keyboardType={'numeric'}
                             onChangeText={
@@ -46,3 +53,13 @@ export const FormularioPociones = ({campos}: any) => {
         </View>
     )
 };
+
+const estilosFormulario = StyleSheet.create({
+    formulario: {
+        paddingBottom: 20,
+    },
+    imagenes: {
+        width: 15,
+        height: 15
+    }
+});
